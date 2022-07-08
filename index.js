@@ -66,5 +66,5 @@ app.use(_404)
 // ~ Server listening 
 const PORT = process.env.PORT ?? 3000;
 app.listen(PORT, () => {
-    logger(`App listen on http://localhost:${PORT}`);
+    logger(`\x1b[1;33m\u26a1http://localhost:${PORT} \u26a1\x1b[0m`);
 });

@@ -1,5 +1,19 @@
+@font-face {
+    font-family: "wide";
+    src: url("/font/wide.ttf") format("truetype");
+}
+
+:root{
+    --white: #d1d8ec; 
+    --smoke: #f0f8ff;
+    --contouring: #b2b8c9;
+    --black: #222222;
+    --button: #ffffff;
+}
+
 body {
-    background: #d1d8ec;
+    font-family: "wide";
+    background:var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,18 +29,160 @@ header {
 
 header > h1 {
     font-size: 3em;
-    margin: 3%;
+    margin: 5%;
 }
 
 main {
+    position: relative;
     width: 300px;
     height: 50vh;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    background: #d1d8ec;
-    -webkit-box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
-    box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+    -webkit-border-radius: 2.5em;
+    border-radius: 2.5em;
+    background: var(--white);
+    -webkit-box-shadow: 0.8em 0.8em 1.6em var(--contouring), -0.8em -0.8em 1.6em var(--smoke);
+    box-shadow: 0.8em 0.8em 1.6em var(--contouring), -0.8em -0.8em 1.6em var(--smoke);
 }
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #d1d8ec;
+    -webkit-box-shadow: 0.8em 0.8em 1.6em var(--contouring), -0.8em -0.8em 1.6em var(--smoke);
+    box-shadow: 0.8em 0.8em 1.6em var(--contouring), -0.8em -0.8em 1.6em var(--smoke);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8em;
+}
+
+.login-box h2 {
+    margin: 0 0 1.8em;
+    color: var(--black);
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 0.8em 0;
+    font-size: 1em;
+    color: var(--black);
+    margin-bottom: 2em;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    outline: none;
+    background: transparent;
+}
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.8em 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    color: var(--black);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -1.2em;
+    left: 0;
+    color: var(--black);
+    font-size: 0.8em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 0.8em 1.3em;
+    color: var(--black);
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 2.6em;
+    letter-spacing: 0.2em;
+    border-radius: 0.4em;
+}
+
+
+.login-box a span {
+    position: absolute;
+    display: block;
+    background: var(--white);
+    -webkit-box-shadow: 0.8em 0.8em 1.6em var(--contouring), -0.8em -0.8em 1.6em var(--smoke);
+    box-shadow: 0.8em 0.8em 1.6em var(--contouring), -0.8em -0.8em 1.6em var(--smoke);
+}
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: var(--button);
+    border-radius: 0.3em;
+    padding: 0.8em 1.6em;
+    font-family: "wide";
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* 16 */
+.btn-16 {
+    border: none;
+    color: var(--black);
+}
+
+.btn-16:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow: -0.5em -0.5em 1.2em 0em #fff9, -0.2em -0.2em 0.3em 0px #fff9, 0.5em 0.5em 1.2em 0em #0002,
+        0.2em 0.2em 0.3em 0px #0001;
+    transition: all 0.3s ease;
+}
+
+.btn-16:hover {
+    color: #000;
+}
+
+.btn-16:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+}
+
+.btn-16:active {
+    top: 0.1em;
+}
+
 
 footer {
     position: fixed;

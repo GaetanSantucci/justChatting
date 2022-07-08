@@ -8,5 +8,8 @@ class WordModel {
         };
 
         const { rows } = await pool.query(preparedQuery);
+        return rows[0].result;
     }
 }
+
+export { WordModel };
